@@ -1,0 +1,192 @@
+{
+  "templates": {
+    "requirements_analysis": {
+      "template": "### Requirements Analysis\n\nBusiness requirements:\n{business_requirements}\n\nIdentify and summarize the key system requirements for an insurance Graph-RAG application, including:\n- Document ingestion and entity extraction\n- Knowledge graph construction and schema evolution\n- Natural-language query processing\n- Response generation and compliance checks\n- Automated testing and feedback loops\n\nFormat your response as a bullet-point list.",
+      "metadata": {
+        "version": "1.0",
+        "description": "Analyzes and summarizes business requirements",
+        "parameters": ["business_requirements"],
+        "model": "gpt-4o",
+        "temperature": 0.3,
+        "system_prompt": "You are a senior software requirements analyst specializing in insurance AI systems."
+      }
+    },
+    "document_processing": {
+      "template": "You are an expert in insurance knowledge extraction.\n\nTask: Extract structured entities and relationships from the following insurance document text.\n\nDocument text:\n{document_text}\n\nExtract the following entity types:\n- Policy (with policy_number, effective_date, expiration_date)\n- Coverage (with type, limit, deductible)\n- Exclusion (with description, conditions)\n- Term (with name, definition)\n\nFormat your response as a JSON object with 'entities' and 'relationships' arrays.\nEnsure each entity has a unique ID, type, and relevant attributes.",
+      "metadata": {
+        "version": "1.2",
+        "description": "Extracts structured entities from insurance documents",
+        "parameters": ["document_text"],
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "system_prompt": "You are an expert insurance document analyst with knowledge of policy structures."
+      }
+    },
+    "definition_extraction": {
+      "template": "Extract all insurance terminology definitions from the following document text.\n\nDocument text:\n{document_text}\n\nIdentify terms that are explicitly defined using patterns like:\n- \"X\" means: [definition]\n- X is defined as [definition]\n- X: [definition]\n\nFor each definition, extract:\n1. The term being defined\n2. The complete definition\n3. Any conditions or exceptions mentioned\n\nFormat your response as a JSON array of definition objects.",
+      "metadata": {
+        "version": "1.0",
+        "description": "Extracts insurance terminology definitions",
+        "parameters": ["document_text"],
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "system_prompt": "You are an expert in insurance terminology extraction."
+      }
+    },
+    "section_extraction": {
+      "template": "Extract the {section_name} section from the following insurance document.\n\nDocument text:\n{document_text}\n\nThe {section_name} section typically contains information about {section_description}.\n\nIt may be labeled as \"{section_name}\" or similar headings like {alternative_headings}.\n\nReturn the complete text of the {section_name} section only.",
+      "metadata": {
+        "version": "1.0",
+        "description": "Extracts specific sections from insurance documents",
+        "parameters": ["document_text", "section_name", "section_description", "alternative_headings"],
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "system_prompt": "You are an expert at locating specific sections in insurance documents."
+      }
+    },
+    "policy_entity_extraction": {
+      "template": "Extract detailed information about the insurance policy mentioned in this text.\n\nDocument text:\n{document_text}\n\nExtract the following fields:\n- Policy number\n- Policy type (auto, home, life, etc.)\n- Effective date\n- Expiration date\n- Policyholder name\n- Premium amount\n- Payment frequency\n\nFormat your response as a JSON object with these fields.",
+      "metadata": {
+        "version": "1.1",
+        "description": "Extracts policy details from insurance documents",
+        "parameters": ["document_text"],
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "system_prompt": "You are an expert at identifying policy details in insurance documents."
+      }
+    },
+    "query_intent_classification": {
+      "template": "Classify the intent of this insurance query:\n\n\"{query}\"\n\nSelect ONE of the following intent categories:\n\n1. policy_details: Questions about specific policy information, numbers, dates, or status\n2. coverage_inquiry: Questions about what is or isn't covered\n3. claim_status: Questions about existing claims\n4. premium_information: Questions about payments, costs, billing\n5. filing_claim: Questions about how to submit a claim\n6. definition_inquiry: Questions about insurance terms or concepts\n\nReturn a JSON object with:\n- intent: the selected category name\n- confidence: a score from 0.0 to 1.0 reflecting your certainty\n- reasoning: brief explanation for your classification",
+      "metadata": {
+        "version": "1.2",
+        "description": "Classifies insurance query intents",
+        "parameters": ["query"],
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "system_prompt": "You are an expert in insurance customer service query analysis."
+      }
+    },
+    "parameter_extraction": {
+      "template": "Extract relevant parameters from this insurance query:\n\n\"{query}\"\n\nThe identified intent is: {intent}\n\nExtract the following types of parameters:\n- policy_number\n- claim_number\n- policy_type\n- coverage_types\n- dates\n- amounts\n\nReturn a JSON object with the extracted parameters.",
+      "metadata": {
+        "version": "1.1",
+        "description": "Extracts parameters from insurance queries",
+        "parameters": ["query", "intent"],
+        "model": "gpt-4o",
+        "temperature": 0.1,
+        "system_prompt": "You are an expert in extracting structured information from natural language queries."
+      }
+    },
+    "response_generation": {
+      "template": "Generate a conversational response to this insurance query:\n\nQuery: \"{query}\"\nIntent: {intent}\n\nQuery Results:\n{query_results}\nUser Context:\n{user_context}\n\nGenerate a response with a professional but conversational tone, direct answer first, explain any technical terms, and include disclaimers where needed.",
+      "metadata": {
+        "version": "1.3",
+        "description": "Generates natural language responses to insurance queries",
+        "parameters": ["query", "intent", "query_results", "user_context"],
+        "model": "gpt-4o",
+        "temperature": 0.7,
+        "system_prompt": "You are a helpful, knowledgeable insurance assistant providing accurate information."
+      }
+    },
+    "schema_analysis": {
+      "template": "Analyze this insurance knowledge graph schema and instance data:\n\nCurrent Schema:\n{current_schema}\nInstance Data:\n{instance_data}\n\nIdentify missing entities, properties, relationships, and suggest refinements. Return recommendations in JSON.",
+      "metadata": {
+        "version": "1.0",
+        "description": "Analyzes and recommends schema evolution changes",
+        "parameters": ["current_schema", "instance_data"],
+        "model": "gpt-4o",
+        "temperature": 0.2,
+        "system_prompt": "You are an expert in knowledge graph schema design for the insurance domain."
+      }
+    },
+    "test_generation": {
+      "template": "Generate comprehensive test cases for the {component_name} component of the Insurance Graph RAG system:\n\n{component_details}\n\nCover key functionality, edge cases, and insurance-specific scenarios. Return Python unittest code.",
+      "metadata": {
+        "version": "1.0",
+        "description": "Generates comprehensive test cases for system components",
+        "parameters": ["component_name", "component_details"],
+        "model": "gpt-4o",
+        "temperature": 0.2,
+        "system_prompt": "You are an expert test engineer specializing in insurance software systems."
+      }
+    },
+    "error_diagnosis": {
+      "template": "Diagnose failures in this test suite:\n\n{test_results}\n\nIdentify error patterns, root causes, severity, and recommend fixes. Return a structured report.",
+      "metadata": {
+        "version": "1.0",
+        "description": "Diagnoses test failures and recommends fixes",
+        "parameters": ["test_results"],
+        "model": "gpt-4o",
+        "temperature": 0.2,
+        "system_prompt": "You are an expert in software testing and diagnosis for AI systems."
+      }
+    }
+  },
+  "pipelines": {
+    "document_processing_pipeline": {
+      "name": "document_processing_pipeline",
+      "templates": [
+        {
+          "template": "Extract all insurance terminology definitions from the following document text.\n\nDocument text:\n{document_text}\n\nIdentify patterns like “X means: …” and return JSON array of {term, definition, conditions}.",
+          "metadata": {
+            "version": "1.0",
+            "description": "Extracts insurance terminology definitions",
+            "parameters": ["document_text"],
+            "model": "gpt-4o",
+            "temperature": 0.1,
+            "system_prompt": "You are an expert in insurance terminology extraction."
+          }
+        },
+        {
+          "template": "You are an expert in insurance knowledge extraction.\n\nTask: Extract structured entities and relationships from the following insurance document text and previously extracted definitions.\n\nDocument text:\n{document_text}\n\nDefinitions:\n{result_0}\n\nExtract entities (Policy, Coverage, Exclusion, Term) and link them to definitions. Return JSON.",
+          "metadata": {
+            "version": "1.0",
+            "description": "Extracts structured entities using definitions",
+            "parameters": ["document_text", "result_0"],
+            "model": "gpt-4o",
+            "temperature": 0.1,
+            "system_prompt": "You are an expert insurance document analyst with knowledge of policy structures."
+          }
+        }
+      ]
+    },
+    "query_processing_pipeline": {
+      "name": "query_processing_pipeline",
+      "templates": [
+        {
+          "template": "Classify the intent of this insurance query:\n\n\"{query}\"\n\nReturn JSON {intent, confidence, reasoning}.",
+          "metadata": {
+            "version": "1.2",
+            "description": "Classifies insurance query intents",
+            "parameters": ["query"],
+            "model": "gpt-4o",
+            "temperature": 0.1,
+            "system_prompt": "You are an expert in insurance customer service query analysis."
+          }
+        },
+        {
+          "template": "Extract parameters from this insurance query:\n\n\"{query}\"\n\nGiven intent {result_0}, return JSON of {policy_number, claim_number, policy_type, coverage_types, dates, amounts}.",
+          "metadata": {
+            "version": "1.1",
+            "description": "Extracts parameters from insurance queries",
+            "parameters": ["query", "result_0"],
+            "model": "gpt-4o",
+            "temperature": 0.1,
+            "system_prompt": "You are an expert in extracting structured information from natural language queries."
+          }
+        },
+        {
+          "template": "Generate a conversational response to this query:\n\nQuery: \"{query}\"\nIntent: {result_0}\nParameters: {result_1}\nResults: {query_results}\nContext: {user_context}\n\nReturn a professional, direct answer with explanations and disclaimers.",
+          "metadata": {
+            "version": "1.3",
+            "description": "Generates natural language responses to insurance queries",
+            "parameters": ["query", "result_0", "result_1", "query_results", "user_context"],
+            "model": "gpt-4o",
+            "temperature": 0.7,
+            "system_prompt": "You are a helpful, knowledgeable insurance assistant providing accurate information."
+          }
+        }
+      ]
+    }
+  }
+}

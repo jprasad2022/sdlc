@@ -1,0 +1,12 @@
+# Documentation Generation for {component_name}
+            
+Generate comprehensive documentation for the {component_name} component:
+            
+{component_implementation}
+            
+Include:
+1. Overview and purpose
+2. Architecture and design decisions
+3. API reference with examples
+4. Configuration and deployment guidelines
+5. Maintenance and troubleshooting

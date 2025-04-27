@@ -1,0 +1,28 @@
+# prompts/automated_qa_system_test_generation.txt
+Generate comprehensive test cases for the Insurance Graph RAG system's {component_name} component.
+
+Component Details:
+{component_details}
+
+Instructions:
+1. Create test cases covering all key functionality
+2. Include tests for normal operation scenarios
+3. Add tests for edge cases and error conditions
+4. Ensure coverage of insurance-specific scenarios
+5. Incorporate domain knowledge about policies, claims, and coverages
+
+Test types to include:
+- Unit tests for core functions
+- Integration tests for component interactions
+- Mock-based tests for external dependencies
+- Parameterized tests for multiple scenarios
+- Error handling tests
+
+Insurance domain considerations:
+- Policy status transitions (active, expired, cancelled)
+- Claim processing scenarios (filing, review, approval, denial)
+- Coverage verification for different policy types
+- Premium calculation and payment processing
+- Regulatory compliance requirements
+
+Format your output as executable Python test code using unittest framework.

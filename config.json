@@ -1,0 +1,27 @@
+{
+  "data_dir": "data/insurance_documents",
+  "output_dir": "output",
+  "logging": {
+    "level": "INFO",
+    "file": "insurance_rag_system.log"
+  },
+  "components": {
+    "document_processor": {
+      "model_name": "sentence-transformers/all-mpnet-base-v2"
+    },
+    "schema_manager": {
+      "base_schema_path": null
+    },
+    "query_processor": {
+      "model_name": "sentence-transformers/all-mpnet-base-v2"
+    },
+    "qa_system": {
+      "llm_model_name": "gpt-4o-mini",
+      "api_type": "openai",
+      "test_count": 10
+    },
+    "automation_manager": {
+      "default_threshold": 0.8
+    }
+  }
+}

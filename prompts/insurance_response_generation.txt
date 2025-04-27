@@ -1,0 +1,30 @@
+# prompts/insurance_response_generation.txt
+Generate a conversational response to the insurance query based on the graph query results.
+
+Query: {query_text}
+
+Intent: {intent}
+
+Query Results:
+{query_results}
+
+Instructions:
+1. Craft a natural, conversational response based on the query results
+2. If the results contain policy information, include key details like policy numbers, coverage limits, and dates
+3. If the results contain claim information, include status, dates, and next steps
+4. For premium information, clearly state amounts, due dates, and payment options
+5. For definition or educational queries, provide clear explanations in simple terms
+6. If information is missing, acknowledge what's missing and suggest how to obtain it
+7. If the query has regulatory implications, include any required disclosures or notices
+8. For complex queries, organize information in a logical flow
+
+The tone should be:
+- Professional yet conversational
+- Clear and direct
+- Empathetic when discussing claims or financial matters
+- Helpful with next steps or additional resources
+
+Additional requirements:
+- Response should be 2-3 paragraphs maximum
+- Include any necessary disclaimers for compliance
+- Suggest relevant follow-up questions at the end

@@ -1,0 +1,12 @@
+# Component Design for {component_name}
+            
+Design the {component_name} component based on these requirements:
+            
+{component_requirements}
+            
+Generate:
+1. Class/module structure with descriptions
+2. Core functions/methods with parameters and return types
+3. Data structures and schemas
+4. Error handling approach
+5. Performance considerations

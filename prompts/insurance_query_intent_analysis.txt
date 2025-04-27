@@ -1,0 +1,47 @@
+# prompts/insurance_query_intent_analysis.txt
+Analyze the following customer query to extract intents, entities, and parameters relevant to an insurance RAG system:
+
+Query: {query_text}
+
+Instructions:
+1. Identify the primary intent category from:
+   - policy_details (information about policies)
+   - coverage_inquiry (what is covered)
+   - claim_status (status of claims)
+   - premium_information (payments, costs)
+   - filing_claim (how to submit a claim)
+   - definition_inquiry (meaning of terms)
+   - other (specify if none of the above apply)
+   - policy_details (information about policies)
+   - coverage_inquiry (what is covered)
+   - claim_status (status of claims)
+   - premium_information (payments, costs)
+   - filing_claim (how to submit a claim)
+   - definition_inquiry (meaning of terms)
+   - other (specify if none of the above apply)
+
+2. Extract key entities from:
+   - policy_number (e.g., P12345)
+   - claim_number (e.g., CL4001)
+   - policy_type (auto, home, health, etc.)
+   - coverage_type (liability, collision, flood, etc.)
+   - dates (effective dates, expiration dates, loss dates)
+   - amounts (limits, deductibles, premiums)
+
+3. Determine context requirements:
+   - Does the query require user context to answer?
+   - What specific context would be needed?
+   - Is there implied context in the query?
+
+4. Assess query complexity:
+   - Simple (single intent, clear entities)
+   - Moderate (clear intent, ambiguous entities)
+   - Complex (multiple intents or complex relationships)
+
+Format your response as a structured JSON object with:
+- primary_intent: string (one of the categories)
+- confidence: float (0.0-1.0)
+- entities: object with extracted parameters
+- required_context: array of strings
+- complexity: string (simple/moderate/complex)
+- reasoning: brief explanation of your analysis

@@ -1,0 +1,76 @@
+# Requirements Analysis for Insurance Graph RAG System
+            
+You are an expert software requirements analyst with deep knowledge of insurance domain, knowledge graphs, and RAG systems. Your task is to conduct a COMPREHENSIVE and DETAILED analysis of the following business requirements for an Insurance Graph RAG system.
+            
+## Business Requirements:
+            
+Create a comprehensive insurance domain knowledge graph RAG system that:
+
+1. Processes diverse insurance policy documents (policies, endorsements, claims forms, coverage declarations) to extract structured information including:
+   - Entity extraction (policies, coverages, exclusions, limits, policyholders, providers)
+   - Relationship mapping (policy-to-coverage relationships, exclusion applicability)
+   - Temporal data extraction (effective dates, expiration dates, claim dates)
+   - Numerical data extraction (amounts, limits, deductibles, premiums)
+
+2. Builds and maintains a self-evolving knowledge graph schema that:
+   - Adapts to new document types and structures
+   - Identifies and incorporates new entity and relationship types
+   - Validates schema changes against domain constraints
+   - Maintains versioning and change history
+
+3. Processes sophisticated natural language queries about:
+   - Policy details and coverage specifics
+   - Claims processing and status
+   - Regulatory compliance verification
+   - Coverage comparison and gap analysis
+   - Risk assessment and historical patterns
+
+4. Provides accurate, contextual responses that:
+   - Cite specific policy sections and clauses
+   - Incorporate domain-specific terminology and explanations
+   - Address regulatory and compliance considerations
+   - Offer multi-format output (text, structured data, visualizations)
+
+5. Continuously learns and improves through:
+   - Automated testing against known insurance scenarios
+   - User feedback collection and integration
+   - Self-assessment of response quality and accuracy
+   - Identification of knowledge gaps and recommendations for improvement
+            
+## Instructions:
+Please provide an exhaustive analysis with the following sections:
+            
+1. Core user stories in format: "As a [user], I want to [action] so that [benefit]"
+   - Include at least 8-10 detailed user stories covering different user types
+   - Prioritize stories by importance (Critical, High, Medium, Low)
+
+2. Functional requirements - provide comprehensive details for each category:
+   - Document processing (ingestion, parsing, extraction techniques)
+   - Knowledge graph management (schema, evolution, storage, indexing)
+   - Query processing (NLP techniques, intent recognition, parameter extraction)
+   - Response generation (templating, personalization, citations)
+   - System automation (testing, learning, improvement mechanisms)
+   - Integration capabilities (APIs, external systems)
+
+3. Non-functional requirements:
+   - Performance metrics and SLAs (response times, throughput, accuracy)
+   - Security requirements (data protection, access control, audit)
+   - Compliance needs (insurance regulations, data privacy laws)
+   - Scalability considerations
+   - Reliability and fault tolerance
+   - Maintainability and extensibility
+
+4. Data requirements:
+   - Required insurance document types
+   - Entity types and relationships
+   - Data quality standards
+   - Storage and retrieval requirements
+   - Data lifecycle management
+
+5. Technical constraints and dependencies:
+   - Required technologies and frameworks
+   - Integration points
+   - Deployment considerations
+   - Operational requirements
+
+Format your response as a detailed, structured document with clear sections, subsections, and comprehensive bullet points.

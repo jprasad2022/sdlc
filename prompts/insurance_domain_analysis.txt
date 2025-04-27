@@ -1,0 +1,20 @@
+# prompts/insurance_domain_analysis.txt
+Analyze the insurance domain knowledge from the following input text and extract structured information that would be useful for a graph-based RAG system.
+
+Input:
+{input_text}
+
+Instructions:
+1. Identify key insurance entities (policies, coverages, claims, etc.)
+2. Extract relationships between entities
+3. Identify domain-specific terminology and definitions
+4. Note any regulatory or compliance requirements
+5. Highlight data schemas or structures referenced
+
+Format your output as follows:
+- Core Entities: [list with descriptions]
+- Entity Relationships: [list with descriptions]
+- Domain Terminology: [term: definition pairs]
+- Compliance Requirements: [list]
+- Data Structures: [descriptions]
+- Recommendations for Knowledge Graph: [suggestions for modeling]

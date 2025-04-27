@@ -1,0 +1,24 @@
+# prompts/graph_schema_evolution.txt
+Given the current graph schema and instance data, recommend schema evolution changes to better represent the insurance domain knowledge.
+
+Current Schema:
+{current_schema}
+
+Instance Data Example:
+{instance_data}
+
+Instructions:
+1. Analyze the instance data against the current schema
+2. Identify any missing entity types
+3. Identify missing properties on existing entity types
+4. Identify new relationship types that should be modeled
+5. Suggest refinements to existing relationship definitions
+6. Consider insurance-specific constraints (regulatory, business rules)
+
+Provide:
+1. Recommended new entity types with properties
+2. Recommended property additions to existing entities
+3. Recommended new relationship types
+4. Schema evolution strategy (additive vs. transformative)
+5. Risk assessment of proposed changes
+6. Migration considerations for existing data

@@ -1,0 +1,12 @@
+# Code Generation for {module_name}
+
+Generate production-quality Python code for the {module_name} module based on this design:
+
+{module_design}
+
+Requirements:
+1. Follow PEP 8 style guidelines
+2. Include comprehensive docstrings
+3. Implement proper error handling and logging
+4. Add appropriate unit tests
+5. Consider edge cases in the implementation
